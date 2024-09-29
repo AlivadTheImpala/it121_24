@@ -7,4 +7,5 @@ let goal =
 let output = `Hi my name is ${firstName} ${lastName}, and I have been studying at Seattle Central for ${yearsOfStudy} years. My goal is to ${goal}.`;
 
 console.log(output);
+
 document.write(output);

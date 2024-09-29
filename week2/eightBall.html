@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let eightBall = Math.random();
+      let userPrompt = prompt("Tell me something...");
+      let response = "";
+
+      eightBall = Math.floor(eightBall * 6);
+
+      switch (eightBall) {
+        case 0:
+          response = "Zero, that's a nice number";
+          console.log(eightBall);
+          break;
+
+        case 1:
+          response = "One, its better than nothing.";
+          console.log(eightBall);
+          break;
+
+        case 2:
+          response = "Two, nice to have more than one.";
+          console.log(eightBall);
+          break;
+
+        case 3:
+          response = "Three, a crowd.";
+          console.log(eightBall);
+          break;
+
+        case 4:
+          response = "Four, we've got a box now.";
+          console.log(eightBall);
+          break;
+
+        case 5:
+          response = "Five, five dollar foot loooooong.";
+          console.log(eightBall);
+          break;
+
+        default:
+          document.write("Hmm, nothing to see here...");
+      }
+      document.write(userPrompt + ". " + response);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pig Latin translator</title>
+  </head>
+  <body>
+    <script>
+      phrase = prompt("Enter a phrase");
+      document.write("You entered - ", phrase);
+
+      // Your pig-latin translation code here
+
+      // If a word begins with a vowel, append 'way' to the end of the word: apple --> appleway
+      let vowels = [A, a, E, e, I, i, O, o, U, u, Y, y];
+
+      // If a word begins with one consonant, move that letter to the end and append 'ay':
+      // pig latin --> igpay atinlay
+
+      // If a word begins with two consonants, move both letters to the end and append 'ay':
+      // grade --> adegray
+    </script>
+  </body>
+</html>
