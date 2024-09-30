@@ -9,9 +9,14 @@
     <script>
       let eightBall = Math.random();
       let userPrompt = prompt("Tell me something...");
+
+      // initialize response, but an empty string is assigned to it.
       let response = "";
 
+      /*  we want a number between 0 and 5, so we multiply the random number assigned to eightBall by 6. To make it a whole number we apply the floor method. */
       eightBall = Math.floor(eightBall * 6);
+
+      /*  depending upon the random number between 0-5 assigned to eightBall, response will be given the appropriate string. The random number is displayed in the console for testing purposes. */
 
       switch (eightBall) {
         case 0:
@@ -47,6 +52,7 @@
         default:
           document.write("Hmm, nothing to see here...");
       }
+      /* Finally, the users prompt is displayed and ends with a period, followed by the response depending on the random number */
       document.write(userPrompt + ". " + response);
     </script>
   </body>
