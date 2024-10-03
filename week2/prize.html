@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let prize = prompt("Select your prize! Enter a number between 0-10.");
+      prize = Number(prize);
+      console.log(prize);
+
+      let prizeResponse = "";
+
+      let userSelection = "My Selection:";
+      console.log(userSelection);
+
+      switch (prize) {
+        case 0:
+        case 1:
+          prizeResponse = "Congrats! You get....NOTHING ^-^";
+          break;
+
+        case 2:
+        case 4:
+          prizeResponse =
+            "This is an even number, which means even more disappointment!";
+          break;
+
+        case 3:
+        case 5:
+          prizeResponse =
+            "This is an odd number. Odd...there's no prize here o.O";
+          break;
+
+        case 6:
+          prizeResponse =
+            "Heres a fun fact. In pottery, cones refers to heat temperature plus time. Cone 6 is a common mid range temperature as it provides a good medium between interesting glazes and energy efficiency. You're welcome.";
+
+        case 7:
+          prizeResponse =
+            "Fun Fact. A very popular use of the number seven comes from the suave James Bond, whose codename is 007. ";
+        case 8:
+        case 9:
+        case 10:
+          prizeResponse =
+            "Hey now, shooting for the big numbers! What did you expect here? a prize?";
+        default:
+          prizeResponse =
+            "Hey now, that's not a valid response. Go ahead and try again.";
+      }
+      let output = `${userSelection} ${prize} <br>${prizeResponse}`;
+      document.write(output);
+    </script>
+  </body>
+</html>
