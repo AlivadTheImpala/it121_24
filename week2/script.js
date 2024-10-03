@@ -1,6 +1,6 @@
-// phrase = prompt("Enter a phrase");
-// document.write("You entered - ", phrase);
-
+/* // script.js
+Author: Brandon Davila
+Date: Oct 02, 2024 */
 /* 
 
 If a word begins with a vowel, append 'way' to the end of the word: apple --> appleway
@@ -20,6 +20,7 @@ let secondLetter = userInput.charAt(1);
 // first we check if there is no userInput. We prompt the user to enter a word to continue.
 if (userInput == " " || userInput == "") {
   console.log("please enter a word.");
+  document.write("please enter a word.");
   // we check if the first letter is a vowel. and create a switch to handle different cases.
 } else {
   let isVowel = vowels.includes(firstLetter) ? true : false;
