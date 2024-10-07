@@ -25,7 +25,7 @@ if (userInput == " " || userInput == "") {
 } else {
   let isVowel = vowels.includes(firstLetter) ? true : false;
   console.log("First Letter is a vowel: ", isVowel);
-  // when the first letter is a vowel, all we do iss append way to the end.
+  // when the first letter is a vowel, all we do is append "way" to the end.
   switch (isVowel) {
     case true:
       let wayify = userInput + "way";
