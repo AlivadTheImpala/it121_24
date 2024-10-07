@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.5: Friends</title>
+  </head>
+  <body>
+    <script>
+      // we create an object with an empty friends array
+      let people = { friends: [] };
+      // we created 3 variables, each an object that represents a friend.
+      let friend1 = { firstName: "Ryan", lastName: "Smith", id: 1 };
+      let friend2 = { firstName: "Jesse", lastName: "Christ", id: 2 };
+      let friend3 = { firstName: "Marcos", lastName: "Hennesey", id: 3 };
+
+      /* to add the three friend objects into the friends array inside the people object, we can use the push method. First well call the people object, then the friends array and finally push the objects we want into the array.  */
+      people.friends.push(friend1, friend2, friend3);
+      console.log(people);
+    </script>
+  </body>
+</html>
