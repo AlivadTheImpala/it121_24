@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.3: Arrayception</title>
+  </head>
+  <body>
+    <script>
+      let array1 = [1, 2, 3];
+      //array1 is placed into an array and is repeated 3 times.
+      let nestedArray = [array1, array1, array1];
+      /* // we are looking into index position 0 of the nestedArray, which is the first occurence if array1. Within array1 we want to look at index position 1 which gives us the value of 2 */
+      let arrayOutput = nestedArray[0][1];
+
+      console.log(arrayOutput);
+    </script>
+  </body>
+</html>

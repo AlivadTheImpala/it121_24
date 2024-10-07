@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4: working with objects</title>
+  </head>
+  <body>
+    <script>
+      let myCar = {
+        make: "Hyundai",
+        model: "Elantra GT",
+        color: "Blue",
+        transmission: "Automatic",
+      };
+
+      let color =
+        "color"; /*we create a variable to hold a property value string. In this case color, which is associated with the existing property also called color */
+      myCar[color] =
+        "Red"; /* we plug the variable we just created into the brackets so that we can search for the color property and change the color to Red.  */
+      console.log(myCar);
+      console.log(myCar.color);
+
+      color =
+        "forSale"; /* Using the same variable we created before, we change the string to forSale. */
+      myCar[
+        color
+      ] = true; /* As before we use the variable in the brackets to look for the forSale property. In this case, it doesn't exist in the original myCar object, so javascript adds it as a property to the myCar object, and then adds the value of true to the property. */
+      console.log(myCar.make, myCar.model);
+      console.log(myCar);
+      console.log("The car is for sale:", myCar.forSale);
+    </script>
+  </body>
+</html>
