@@ -17,6 +17,7 @@ let userInput = prompt("Enter a word to translate into Pig Latin.");
 let vowels = ["a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"];
 let firstLetter = userInput.charAt(0);
 let secondLetter = userInput.charAt(1);
+
 // first we check if there is no userInput. We prompt the user to enter a word to continue.
 if (userInput == " " || userInput == "") {
   console.log("please enter a word.");

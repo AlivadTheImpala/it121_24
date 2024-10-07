@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2: Array Methods</title>
+  </head>
+  <body>
+    <script>
+      let shoppingList = [];
+      shoppingList.push("Milk", "Bread", "Apples");
+      shoppingList.splice(1, 1, "Bananas", "Eggs");
+      console.log(shoppingList);
+      shoppingList.pop();
+      console.log(shoppingList);
+      shoppingList.sort();
+      shoppingList.indexOf("Milk");
+      shoppingList.splice(1, 0, "Carrots", "Lettuce");
+
+      let newList = ["Juice", "Pop"];
+      let combinedList = shoppingList.concat(newList, newList);
+
+      console.log(
+        combinedList,
+        `The last occurrence of Pop is at index ${combinedList.lastIndexOf(
+          "Pop"
+        )}`
+      );
+    </script>
+  </body>
+</html>
