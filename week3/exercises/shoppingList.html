@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 3.1: Javascript Beginner to Professional</title>
+  </head>
+  <body>
+    <script>
+      // create an array with a shopping list
+      let shoppingList = ["Milk", "Bread", "Apples"];
+      //   console.log("The shopping list has", shoppingList.length, "items");
+
+      //   access the item at index 1 (Bread) and replace it with Banana.
+      shoppingList[1] = "Banana";
+      //   Note: you can use backticks inside the console.log!
+      console.log(
+        `The shopping list has ${
+          shoppingList.length
+        } items,but the max index is ${shoppingList.length - 1}`
+      );
+      console.log(shoppingList);
+    </script>
+  </body>
+</html>
