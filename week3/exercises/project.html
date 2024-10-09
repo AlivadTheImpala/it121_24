@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 3 Project: Manipulating Arrays</title>
+  </head>
+  <body>
+    <h1>Chapter 3 Project: Manipulating Arrays</h1>
+
+    <script>
+      const theList = [
+        "Laurence",
+        "Svekis",
+        true,
+        35,
+        null,
+        undefined,
+        { test: "one", score: 55 },
+        ["one", "two"],
+      ];
+      /*  manipulate the list above so that it looks like this:
+        ["FIRST", "Svekis", "MIDDLE", "hello World", "LAST"] */
+
+      theList.shift(); //deletes the first item in the array Laurence
+      theList.pop(); // deletes the last item in the array ["one","two"]
+      theList.unshift("FIRST"); // adds FIRST to index 0 of the array
+      theList.splice(2, 5, "MIDDLE", "hello World"); // starting at index 2 we are removing 5 items from the list and only adding MIDDLE and hello world.
+      theList.push("LAST"); // adds LAST to the last position of the array.
+      console.log(theList); // log theList into the console.
+    </script>
+  </body>
+</html>
