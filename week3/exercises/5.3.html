@@ -7,18 +7,20 @@
   </head>
   <body>
     <script>
-      /* create an array to hold lessons that are labeled numerically and alternate between true/false status */
+      /* create an array to hold 10 lessons that are labeled numerically and alternate between true/false status */
       let myWork = []; //we create an empty array, which will hold our objects.
 
       for (let i = 1; i <= 10; i++) {
-        let mod = i % 2; // anything divisible by 2 will return 0 remainder and everything not, a 1 remainder.
-        let status; //initialize status so that we can use it outside of the if else loop.
+        // let mod = i % 2; // anything divisible by 2 will return 0 remainder and everything not, a 1 remainder.
+        // // let status; //initialize status so that we can use it outside of the if else loop.
 
-        if (mod === 0) {
-          status = false;
-        } else {
-          status = true;
-        } // we reassign status, either true or false, depending on mod being 0. every time mod is 0 we have a false status, and when mod is 1 status is true.
+        // if (mod === 0) {
+        //   status = false;
+        // } else {
+        //   status = true;
+        // } // we reassign status, either true or false, depending on mod being 0. every time mod is 0 we have a false status, and when mod is 1 status is true.
+
+        let status = i % 2 ? true : false; // we can completely skip the if loop and the mod variable! using a ternary operator, we can set the value of status. we still use modulo, in this case remainder/modulo 1 is true and 0 is false.
 
         let lesson = { name: `Lesson ${i}`, status: status }; // create the object for the Lesson number and status.
         myWork.push(lesson); //pushes the lesson object into the myWork array. This continues until i equals 10 at which point the loop will stop.
