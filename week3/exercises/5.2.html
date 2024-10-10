@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2: Do While</title>
+  </head>
+  <body>
+    <script>
+      // create a step counter that prints the number. Print all numbers that are 100 or less.
+
+      let count = 0; // we set the count to 0.
+
+      do {
+        console.log(count); //we print the current count, 0, into the console.
+        step = count + 1; //count is incremented by 1 and stored in step.
+        count = step; //count is reassigned with steps value which is count + 1, so...1
+      } while (
+        count <= 100
+      ); /* 1 is less than 100 so the condition is true and the loop repeats. as soon as count is greater than 100 the condition is false and the loop stops */
+    </script>
+  </body>
+</html>
