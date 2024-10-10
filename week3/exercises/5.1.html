@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1</title>
+  </head>
+  <body>
+    <script>
+      const max = 5;
+      const randomNumber = Math.floor(Math.random() * max + 1);
+      //   console.log(randomNumber);
+
+      let guess = false; // we set the guess to false initially, because we assume the number has not yet been guessed correctly. By setting !guess we are changing guess to true which runs the loop.
+
+      while (!guess) {
+        let userPrompt = prompt("Please enter a number between 1-5");
+        userPrompt = Number(userPrompt);
+        let message = ""; // initialize a blank message
+
+        if (userPrompt === randomNumber) {
+          message = "Hey you got it!";
+          guess = true; //when the guess is correct, we change guess to true. Because ! inverts the boolean, the while loop reads it as false. Since the while loop needs a true condition to run and we now have false, the loop ends
+        } else if (userPrompt > randomNumber) {
+          message = "Sorry, too high";
+        } else {
+          message = "Oof, too low";
+        }
+        console.log("You selected", userPrompt, message);
+      }
+    </script>
+  </body>
+</html>
