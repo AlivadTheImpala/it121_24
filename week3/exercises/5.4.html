@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.4: Nested Loops</title>
+  </head>
+  <body>
+    <script>
+      //I had to take a look at the appendix to figure this one out, but heres an explanation of how it works.
+      const myTable = []; // we create the array which will hold the rows
+      const numRows = 4; // we declare that we want 4 rows
+      const numCol = 7; // and 7 columns, or, that we want 7 numbers in each row.
+      let counter = 0; //declaring the counter outside of our loop will allow it to retain its current value through each iteration of our row creation.
+
+      for (let i = 0; i < numRows; i++) {
+        let tempTable = [];
+
+        for (let j = 0; j < numCol; j++) {
+          counter++;
+          tempTable.push(counter);
+        }
+        myTable.push(tempTable);
+      }
+      console.table(myTable);
+    </script>
+  </body>
+</html>
