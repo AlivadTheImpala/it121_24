@@ -10,42 +10,56 @@
       const grades =
         "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
       let stringArray = grades.split(", ");
-      // ['jim|25', 'sue|32', 'mary|34', 'ann|22', 'ted|28', 'frank|15', 'lisa|19', 'mike|30', 'ahn|26', 'vishaya|27']
-      let studentArray = [];
-      let studentNames = [];
-      let studentScores = [];
+      /* stringArray output: ['jim|25', 'sue|32', 'mary|34', 'ann|22', 'ted|28', 'frank|15', 'lisa|19', 'mike|30', 'ahn|26', 'vishaya|27'] */
 
-      //while loop splits the students name and score using | as the splitter.
+      let studentArray = []; // this will hold 10 arrays for each student containing name and score
+      let studentNames = []; // this holds just the student names.
+      let studentScores = []; // this holds just the scores.
+
+      /* while loop splits the students name and score using | as the splitter and pushes the result into the studentArray. */
       i = 0;
       while (i < stringArray.length) {
         let splitter = stringArray[i].split("|");
         studentArray.push(splitter);
-        // console.log(`${capitalizedName} - ${studentScore} `);
         i++;
       }
+      // end while loop
 
+      /* the for loop here does two actions. The first is to separate the names and numbers from the studentArray. A temporary names variable is created that looks at index 0 of studentsArray, then the name is capitalized. Second, the scores get converted from a string to a number(scores are index 1 of the studentsArray). The name and score are pushed to their respective arrays above then logged to the console.  */
       for (i = 0; i < studentArray.length; i++) {
         let names = studentArray[i][0];
-        let numbers = parseInt(studentArray[i][1]);
         let capitalizedName = names
           .charAt(0)
           .toUpperCase()
           .concat(names.slice(1));
-        console.log(capitalizedName);
+        let numbers = parseInt(studentArray[i][1]);
         studentScores.push(numbers);
         studentNames.push(capitalizedName);
+        console.log(studentNames[i], "-", studentScores[i]);
+      }
+      // end for loop
+
+      // for loop to add all of the scores in the studentScores array.
+      let sum = 0; //initialize sum as 0
+      for (let i = 0; i < studentScores.length; i++) {
+        sum = sum + studentScores[i]; //sum is reassigned using the current value of sum(0) plus the value of index 0 in the studentScores array (15 since the scores are sorted least to greatest below)
       }
 
-      console.log(studentNames[0], "-", studentScores[0]);
+      studentScores.sort(); //sort the numbers!
+      let lowestScore = studentScores[0]; //scores are sorted so index 0 holds the lowest number
+      let highestScore = studentScores[studentScores.length - 1]; //the last index is 1 less then the length of the array. this holds the highest number
+      let averageScore = sum / studentScores.length; // divide the some by the number of scores present in the array studentScores.
 
-      // console.log(stringArray);
-      // console.log(stringArray[0]);
-      // console.log(studentScore);
-      // console.log(`${studentScore[0]} - ${parseInt(studentScore[1])}`);
-      // console.log(typeof parseInt(studentScore[0]));
-      // console.log(splitScores);
-
-      // Your code here
+      console.log(`The sum of all the scores is ${sum}`);
+      console.log(`The average score was ${averageScore}`);
+      console.log(`There are a total of ${studentNames.length} students`);
+      console.log(
+        `The lowest score was ${lowestScore} and the highest score was ${highestScore}`
+      );
+      console.log(
+        "These are the scores sorted least to greatest",
+        studentScores
+      );
     </script>
   </body>
 </html>
