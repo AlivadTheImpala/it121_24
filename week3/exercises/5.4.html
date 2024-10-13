@@ -13,14 +13,16 @@
       const numCol = 7; // and 7 columns, or, that we want 7 numbers in each row.
       let counter = 0; //declaring the counter outside of our loop will allow it to retain its current value through each iteration of our row creation.
 
+      //our first for loop creates the rows, our condition uses numRows as the limit.
       for (let i = 0; i < numRows; i++) {
-        let tempTable = [];
+        let tempTable = []; // this is creating an empty row that will hold the numbers generated in the nested loop.
 
+        //our second loop is incrementing the value of counter and using the numCol as the limit, in this case 7 numbers/columns will be generated
         for (let j = 0; j < numCol; j++) {
-          counter++;
-          tempTable.push(counter);
+          counter++; //counter gets incremented
+          tempTable.push(counter); //then it is pushed into our tempTable. this nested loop repeats until 7 numbers are generated.
         }
-        myTable.push(tempTable);
+        myTable.push(tempTable); //once the seven numbers are generated and have been added to tempTable, tempTable (the row) is pushed into the main array. The first for loop will then repeat creating the second row, the nested loop will continue generating numbers, etc until 4 rows with 7 numbers have been made.
       }
       console.table(myTable);
     </script>

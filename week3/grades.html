@@ -5,14 +5,45 @@
     <title>Student grades</title>
   </head>
   <body>
+    <h1>Assignment</h1>
     <script>
       const grades =
         "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+      let stringArray = grades.split(", ");
+      // ['jim|25', 'sue|32', 'mary|34', 'ann|22', 'ted|28', 'frank|15', 'lisa|19', 'mike|30', 'ahn|26', 'vishaya|27']
+      let studentArray = [];
+      let studentNames = [];
+      let studentScores = [];
 
-      let gradesArray = grades.split(", ");
-      // let splitScores = gradesArray.split("|");
-      console.log(gradesArray);
-      console.log(splitScores);
+      //while loop splits the students name and score using | as the splitter.
+      i = 0;
+      while (i < stringArray.length) {
+        let splitter = stringArray[i].split("|");
+        studentArray.push(splitter);
+        // console.log(`${capitalizedName} - ${studentScore} `);
+        i++;
+      }
+
+      for (i = 0; i < studentArray.length; i++) {
+        let names = studentArray[i][0];
+        let numbers = parseInt(studentArray[i][1]);
+        let capitalizedName = names
+          .charAt(0)
+          .toUpperCase()
+          .concat(names.slice(1));
+        console.log(capitalizedName);
+        studentScores.push(numbers);
+        studentNames.push(capitalizedName);
+      }
+
+      console.log(studentNames[0], "-", studentScores[0]);
+
+      // console.log(stringArray);
+      // console.log(stringArray[0]);
+      // console.log(studentScore);
+      // console.log(`${studentScore[0]} - ${parseInt(studentScore[1])}`);
+      // console.log(typeof parseInt(studentScore[0]));
+      // console.log(splitScores);
 
       // Your code here
     </script>
