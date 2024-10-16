@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2</title>
+  </head>
+  <body>
+    <script>
+      let descriptiveWords = ["awesome", "spectacular", "sick", "radical"];
+
+      function describeName() {
+        let userInput = prompt("Please, Enter A Name So That I Can Judge It.");
+        let randomNumber = Math.floor(Math.random() * descriptiveWords.length);
+
+        console.log(userInput, "is", descriptiveWords[randomNumber]);
+      }
+
+      console.log(describeName());
+    </script>
+  </body>
+</html>

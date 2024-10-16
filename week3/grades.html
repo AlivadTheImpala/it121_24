@@ -43,11 +43,12 @@
       for (let i = 0; i < studentScores.length; i++) {
         sum = sum + studentScores[i]; //sum is reassigned using the current value of sum(0) plus the value of index 0 in the studentScores array (15 since the scores are sorted least to greatest below)
       }
+      // end for loop
 
       studentScores.sort(); //sort the numbers!
-      let lowestScore = studentScores[0]; //scores are sorted so index 0 holds the lowest number
-      let highestScore = studentScores[studentScores.length - 1]; //the last index is 1 less then the length of the array. this holds the highest number
-      let averageScore = sum / studentScores.length; // divide the some by the number of scores present in the array studentScores.
+      let lowestScore = studentScores[0]; //scores are sorted, so index 0 holds the lowest number
+      let highestScore = studentScores[studentScores.length - 1]; //the last index is 1 less then the length of the array. this holds the highest number.
+      let averageScore = sum / studentScores.length; // divide the sum by the number of scores present in the array studentScores.
 
       console.log(`The sum of all the scores is ${sum}`);
       console.log(`The average score was ${averageScore}`);
