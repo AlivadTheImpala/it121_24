@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.3: Basic Calculator</title>
+  </head>
+  <body>
+    <script>
+      let num1 = 521654;
+      let num2 = 500;
+      let operator = "";
+
+      //   x and y are the number values and z is the operator
+      function calculate(x, y, z) {
+        if (z == "-") {
+          return x - y; //if the operator is set to a - the calculator will subtract the two numbers
+        } else {
+          return x + y; //otherwise the calculator defaults to addition.
+        }
+      }
+      console.log(calculate(num1, num2, operator));
+    </script>
+  </body>
+</html>
