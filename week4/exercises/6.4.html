@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.4: Basic Calculator Modification</title>
+  </head>
+  <body>
+    <script>
+      let myNumbers = []; //initialize an empty array to hold our values
+
+      // this array adds two values together
+      function calculate(val1, val2) {
+        return val1 + val2;
+      }
+
+      // we will create two numbers using our increment value and store it in our myNumbers array
+      for (i = 0; i < 10; i++) {
+        let num1 = i * 5;
+        let num2 = i * i;
+        let calculated = calculate(num1, num2); //calling the calculate function, we feed it values created by our loop and store the value in the calculated variable.
+        myNumbers.push(calculated); //we push the calculated value into our array and the loop continues 9 more times.
+      }
+
+      console.log(myNumbers);
+    </script>
+  </body>
+</html>
