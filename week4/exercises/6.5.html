@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.5.html IIFE Immediately Invoked Function Expression</title>
+  </head>
+  <body>
+    <script>
+      // originalValue here has a value of 100 and global scope
+      let originalValue = 1000;
+
+      /* inside this function originalValue is remade with a value of 450, the scope is now local because we are declaring it with let inside of a function. logging from within the function prints 450 */
+      (function () {
+        let originalValue = 450;
+        console.log(originalValue);
+      })();
+      //end function
+
+      // the value of the function is being captured in the result variable. although we are using originalValue yet again, by initializing it with let inside the function, the scope is limited to the function. the value is returned and saved in result.
+      let result = (() => {
+        let originalValue = 500;
+        return originalValue;
+      })();
+      console.log(result);
+      console.log(originalValue);
+
+      // this function takes an argument and assigns it to originalValue. Again because its being initialized within the function, originalValue changes to the function argument.
+      ((newVal) => {
+        let originalValue = newVal;
+        console.log(`The new value of originalValue is ${originalValue}`);
+      })(420);
+    </script>
+  </body>
+</html>
