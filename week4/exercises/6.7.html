@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.7 Nested Functions</title>
+  </head>
+  <body>
+    <script>
+      let start = 10;
+
+      // our og function, runs through an if else loop. This immediately checks if our argument is less than 1 and returns if it is, otherwise it continues through the recursion, subtracting 1 to our argument, until it is true.
+      function ogCountDown(count) {
+        console.log(count);
+        if (count < 1) {
+          return;
+        } else {
+          return ogCountDown(--count);
+        }
+      }
+      ogCountDown(start);
+
+      // this function does the same thing, but instead is checking if the argument is greater than 0. If it is than well continue through the recursion, subtracting 1 to our argument, until it is false. Then returns.
+      function secondCountDown(count) {
+        console.log(count);
+        if (count > 0) {
+          return secondCountDown(--count);
+        }
+        return;
+      }
+
+      secondCountDown(start);
+    </script>
+  </body>
+</html>
