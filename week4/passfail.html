@@ -20,13 +20,32 @@
 
     <script>
       const validateForm = (myForm) => {
-        function validatePassword() {}
+        function validatePassword(password) {
+          if (password.length < 8) {
+            return "password needs to have at least 8 characters.";
+          }
+
+          for (i = 0; i <= password.length; i++) {
+            if (password.charAt(i) != password.charAt(i).toUpperCase()) {
+              return "password must have at least one Upper case character";
+            }
+            for (j = 0; j <= password.length; i++) {
+              if (password.charAt(i) != password.charAt(i).toLowerCase()) {
+                return "password must have at least one Lower case character.";
+              }
+            }
+          }
+        }
+        //end validatePassword function
 
         let firstname = myForm.firstname.value; // get text of firstname field
-
+        let lastname = myForm.lastname.value; // get text of lastname field
+        let password = myForm.password.value; //get text of password field
         /* Form validation code goes here
          */
-
+        let validated = validatePassword(password);
+        document.write(validated);
+        console.log(password.length);
         // use this syntax to update 'message' DIV with appropriate wording
         $("#message").html("message");
 
