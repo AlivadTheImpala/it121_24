@@ -20,42 +20,50 @@
 
     <script>
       const validateForm = (myForm) => {
-        let passMessage;
-        function validatePassword(password) {
-          let passwordValid = false;
+        let passMessage; //initialize a message that will log the appropriate password validation message according to validatePassword
 
+        function validatePassword(password) {
+          let passwordValid = false; // we assume the password is invalid until a validating condition is met.
+
+          //checks the length of the users password.
           if (password.length < 8) {
             return (passMessage =
               "Password needs to have at least 8 characters.");
           }
 
+          // we'll first assume the password does not have any upper or lower cases
           let hasUpper = false;
           let hasLower = false;
 
           for (i = 0; i < password.length; i++) {
             let char = password.charAt(i);
             if (char === char.toUpperCase()) {
-              hasUpper = true;
+              hasUpper = true; // as soon as we encounter an upper case, we'll make hasUpper true.
             }
 
             if (char === char.toLowerCase()) {
-              hasLower = true;
+              hasLower = true; // as soon as we encounter a lower case, we'll make hasLower true.
             }
 
-            if (hasUpper && hasLower) {
-              break;
-            }
+            // if (hasUpper && hasLower) {
+            //   break; // if we have both conditions we can exit the for loop here
+            // }
           }
+
+          // when no upper case is present we'll reassign passMessage to request an Upper case letter
           if (!hasUpper) {
             console.log(passwordValid);
             return (passMessage =
               "password needs to have at least ONE upper case letter");
           }
+          // when no lower case is present we'll reassign passMessage to request an Upper case letter
           if (!hasLower) {
             console.log(passwordValid);
             return (passMessage =
               "password needs to have at least ONE lower case letter");
           }
+
+          // making it this far means the password was valid, so passMessage as reassign accordingly and we also return passwordValid as true.
           passMessage = "Password is valid!";
           return (passwordValid = true);
         }
@@ -64,8 +72,9 @@
         let firstname = myForm.firstname.value; // get text of firstname field
         let lastname = myForm.lastname.value; // get text of lastname field
         let password = myForm.password.value; //get text of password field
-        /* Form validation code goes here
-         */
+
+        // Form validation code goes here
+
         if (firstname === "") {
           $("#message").html("please enter your first name");
           return false;
@@ -76,7 +85,7 @@
           return false;
         }
 
-        let validated = validatePassword(password);
+        let validated = validatePassword(password); // we call validatePassword and feed it password as an argument
         console.log(validated);
         console.log(password.length);
 
