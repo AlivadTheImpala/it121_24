@@ -25,16 +25,30 @@
             return "password needs to have at least 8 characters.";
           }
 
-          for (i = 0; i <= password.length; i++) {
-            if (password.charAt(i) != password.charAt(i).toUpperCase()) {
-              return "password must have at least one Upper case character";
+          let hasUpper = false;
+          let hasLower = false;
+
+          for (i = 0; i < password.length; i++) {
+            let char = password.charAt(i);
+            if (char === char.toUpperCase()) {
+              hasUpper = true;
             }
-            for (j = 0; j <= password.length; i++) {
-              if (password.charAt(i) != password.charAt(i).toLowerCase()) {
-                return "password must have at least one Lower case character.";
-              }
+
+            if (char === char.toLowerCase()) {
+              hasLower = true;
+            }
+
+            if (hasUpper && hasLower) {
+              break;
             }
           }
+          if (!hasUpper) {
+            return "password needs to have at least ONE upper case letter";
+          }
+          if (!hasLower) {
+            return "password needs to have at least ONE lower case letter";
+          }
+          return "password is valid!";
         }
         //end validatePassword function
 
@@ -44,7 +58,7 @@
         /* Form validation code goes here
          */
         let validated = validatePassword(password);
-        document.write(validated);
+        console.log(validated);
         console.log(password.length);
         // use this syntax to update 'message' DIV with appropriate wording
         $("#message").html("message");
