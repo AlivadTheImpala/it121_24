@@ -20,9 +20,13 @@
 
     <script>
       const validateForm = (myForm) => {
+        let passMessage;
         function validatePassword(password) {
+          let passwordValid = false;
+
           if (password.length < 8) {
-            return "password needs to have at least 8 characters.";
+            return (passMessage =
+              "Password needs to have at least 8 characters.");
           }
 
           let hasUpper = false;
@@ -43,12 +47,17 @@
             }
           }
           if (!hasUpper) {
-            return "password needs to have at least ONE upper case letter";
+            console.log(passwordValid);
+            return (passMessage =
+              "password needs to have at least ONE upper case letter");
           }
           if (!hasLower) {
-            return "password needs to have at least ONE lower case letter";
+            console.log(passwordValid);
+            return (passMessage =
+              "password needs to have at least ONE lower case letter");
           }
-          return "password is valid!";
+          passMessage = "Password is valid!";
+          return (passwordValid = true);
         }
         //end validatePassword function
 
@@ -57,11 +66,22 @@
         let password = myForm.password.value; //get text of password field
         /* Form validation code goes here
          */
+        if (firstname === "") {
+          $("#message").html("please enter your first name");
+          return false;
+        }
+
+        if (lastname === "") {
+          $("#message").html("please enter your last name");
+          return false;
+        }
+
         let validated = validatePassword(password);
         console.log(validated);
         console.log(password.length);
+
         // use this syntax to update 'message' DIV with appropriate wording
-        $("#message").html("message");
+        $("#message").html(passMessage);
 
         return false; // prevent page reload
       };
