@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.6 Recursion</title>
+  </head>
+  <body>
+    <script>
+      function calcFactorial(num) {
+        console.log(num);
+        if (num === 0) {
+          return 1;
+        } else {
+          return num * calcFactorial(num - 1); //initially 7 is the num argument so this return will multiply  7*6. Subtracting 1 from 7 gives us 6 as the argument for this call to calcFactorial. This will repeat until num -1 === zero in which case the function will stop.
+        }
+      }
+
+      console.log(calcFactorial(20)); // we call the calcFactorial function and feed it the number 7 as our argument.
+    </script>
+  </body>
+</html>
