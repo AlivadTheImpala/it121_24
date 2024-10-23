@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.1: Working with classes</title>
+  </head>
+  <body>
+    <script>
+      /* classes are blueprints for creating multiple objects with the same properties. Rather than creating each object and naming the properties for every person, the class takes the parameters and creates instances(objects) with the given parameters. We store this in their own variables, which themselves are invoking the class to create the objects.   */
+      class Person {
+        constructor(firstname, lastname) {
+          this.firstname = firstname;
+          this.lastname = lastname;
+        }
+      }
+
+      let jesse = new Person("Jesse", "Christ");
+      let ryan = new Person("Ryan", "Smith");
+      console.log(`Hello ${jesse.firstname} and ${ryan.firstname}`);
+    </script>
+  </body>
+</html>

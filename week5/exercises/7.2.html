@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.2</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(firstname, lastname) {
+          this.firstname = firstname;
+          this.lastname = lastname;
+        }
+        fullname() {
+          return this.firstname + " " + this.lastname;
+        }
+      }
+
+      let person1 = new Person("Jesse", "Christ");
+      let person2 = new Person("Ryan", "Smith");
+
+      // like exercise 7.1 weve created an object that has two properties and a method. The method returns the full name so now we just call person1.fullname.
+      console.log("Hello, " + person1.fullname());
+    </script>
+  </body>
+</html>
