@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.3: prototype</title>
+  </head>
+  <body>
+    <script>
+      // we create a an animal class that has some general properties for animals.
+      class Animal {
+        constructor(species, vocalization) {
+          this.species = species;
+          this.vocalization = vocalization;
+        }
+        // remember, this, becomes whatever object is made from this, down below, outside of the class we make two objects a dog and a lion
+        get getInfo() {
+          console.log(`${this.species}'s make a ${this.vocalization} sound.`);
+        }
+      }
+
+      let dog = new Animal("Dog", "bark");
+      let lion = new Animal("Lion", "roar");
+
+      dog.getInfo;
+
+      // the prototype property is a property that is present in every class via the Object.prototype which is the base object for all objects in javascript. prototype holds all of the properties and methods inside of a class, so when you add a new property/method to the prototype, it in turn adds it to the class.
+      Animal.prototype.color = "golden";
+
+      // when we log the dog object and add the color property, we are able to see the color golden. The color property was added to the Animal class, and because dog is an object of that class, it too was updated with the new color property.
+      console.log(dog.color);
+      console.log(dog); //logs the dog object.
+    </script>
+  </body>
+</html>
