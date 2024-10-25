@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.1 Encoding and Decoding</title>
+  </head>
+  <body>
+    <script>
+      let broken1 = "How's%20it%20going%3F";
+      let decoded = decodeURIComponent(broken1);
+      console.log(decoded);
+
+      let broken2 = "How's it going?";
+      let encoded2 = encodeURIComponent(broken2);
+      console.log(encoded2);
+
+      let uri = "http://www.basescripts.com?=Hello World";
+      let encodedUri = encodeURI(uri); //something interesting happened to the http portion of the uri when i tried encodeURIComponent(). The : and // symbols cause issues and the http is separated from the rest of the uri when displayed in the console.
+      console.log(encodedUri);
+    </script>
+  </body>
+</html>
