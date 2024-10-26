@@ -17,22 +17,34 @@
     <div id="card_hand"></div>
 
     <script>
-      /* define Card object and deck of cards here */
+      //initialize a cardDeck that holds all 52 card objects. Value and Suit are also initialized without values
       let cardDeck = [];
+      let value;
+      let suit;
 
-      class Cards {
+      //a card object will have a value and a suit.
+      class Card {
         constructor(value, suit) {
           this.value = value;
           this.suit = suit;
         }
       }
 
-      let value;
-      let suit;
-
-      function createCards() {
-        for (i = 2; i <= 10; i++) {
+      /* function creates two parameters to feed into the Card class to create a card object. the loop starts at 2 for our first numeric card. 
+      
+      For every card, the inner loop applies the appropriate suit. Each time the inner loop modifies the suit, the value and suit are captured and used as parameters to create a new card object which using the Card class. The card gets pushed into our empty array, and the loop continues on to the next numeric card. */
+      function cardParameters() {
+        for (i = 2; i <= 14; i++) {
           value = i;
+          if (i === 11) {
+            value = "Jack";
+          } else if (i === 12) {
+            value = "Queen";
+          } else if (i === 13) {
+            value = "King";
+          } else if (i === 14) {
+            value = "Ace";
+          }
           for (j = 0; j <= 3; j++) {
             if (j === 0) {
               suit = "Spade";
@@ -43,13 +55,17 @@
             } else {
               suit = "Club";
             }
-            console.log(value, suit);
-            let card = new Cards(value, suit);
+            // console.log(value, suit);
+            let card = new Card(value, suit);
+            cardDeck.push(card);
+            // console.log(card);
             // console.log(typeof card);
           }
         }
       }
-      createCards();
+
+      cardParameters();
+      console.log(cardDeck);
 
       const dealHand = () => {
         /* code to deal a card hand goes here */
