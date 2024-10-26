@@ -21,6 +21,7 @@
       let cardDeck = [];
       let value;
       let suit;
+      let card;
 
       //a card object will have a value and a suit.
       class Card {
@@ -32,7 +33,9 @@
 
       /* function creates two parameters to feed into the Card class to create a card object. the loop starts at 2 for our first numeric card. 
       
-      For every card, the inner loop applies the appropriate suit. Each time the inner loop modifies the suit, the value and suit are captured and used as parameters to create a new card object which using the Card class. The card gets pushed into our empty array, and the loop continues on to the next numeric card. */
+      For each card, the inner loop applies the appropriate suit. Each time the inner loop modifies the suit, the current value and suit are captured in the card variable and used as parameters to create a new card object using the Card class. 
+      
+      The card gets pushed into our empty array, and the loop continues on to the next numeric card. */
       function cardParameters() {
         for (i = 2; i <= 14; i++) {
           value = i;
@@ -56,22 +59,31 @@
               suit = "Club";
             }
             // console.log(value, suit);
-            let card = new Card(value, suit);
+            card = new Card(value, suit);
             cardDeck.push(card);
             // console.log(card);
             // console.log(typeof card);
           }
         }
       }
-
-      cardParameters();
-      console.log(cardDeck);
+      // end function
+      cardParameters(); // run the function
 
       const dealHand = () => {
         /* code to deal a card hand goes here */
+        let hand = ``; //initialize an empty string to display our cards in
+
+        //generate 5 random numbers to use as our index query for the cardDeck and concatenate to our empty string.
+        for (i = 0; i < 5; i++) {
+          let randomNum = Math.floor(Math.random() * 52);
+          //   cardDeck[randomNum].value;
+          //   cardDeck[randomNum].suit;
+          hand += `- ${cardDeck[randomNum].value} of ${cardDeck[randomNum].suit}'s </br>`;
+          console.log(hand);
+        }
 
         // update 'card_hand' DIV with appropriate information
-        $("#card_hand").html("Button clicked");
+        $("#card_hand").html(hand);
 
         return false; // prevent page reload
       };
