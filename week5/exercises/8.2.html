@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.2 More Array Methods</title>
+  </head>
+  <body>
+    <script>
+      let dupedNames = [
+        "Laurence",
+        "Mike",
+        "Larry",
+        "Kim",
+        "Joanne",
+        "Laurence",
+        "Mike",
+        "Laurence",
+        "Mike",
+        "Laurence",
+        "Mike",
+      ];
+      /* filter()'s callback function takes 3 parameters, the current element(required), the index(optional) of the current parameter, and the array(optional) that filter is being called on. The book doesn't do a good job of illustrating this. 
+      
+      Essentially what is happening here, is we log the element and index of all the elements in our dupedNames array. 
+      
+      arr.indexOf(element) takes the same element argument, but because indexOf only accounts for the first instance of the element, it prints out the first index position it finds. So even though the last occurrence of Mike is index 10, the first occurrence is at index 1 so the console will log Mike 10 1.  
+      
+      quick note, to use indexOf, you need to specify an array you want to use indexOf on. Thats why arr.indexOf(element) works but indexOf(element) would NOT work. 
+      
+      Last, what we return is a new array, it is filled only if the index of the current element matches the indexOf() check on the element. Mike 1 1 matches so its part of the new array, Mike 10 1 does not match so its ignored*/
+      let filteredNames = dupedNames.filter((element, index, arr) => {
+        console.log(element, index, arr.indexOf(element));
+        return index === arr.indexOf(element);
+      });
+      console.log(filteredNames);
+    </script>
+  </body>
+</html>
