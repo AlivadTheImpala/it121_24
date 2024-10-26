@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.3 Map()</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+      console.log(`The original array is ${arr}`);
+      //using map creates a new array from calling a function on every array element. here we just multiply the arr by 2 and return the result.
+      let moddedArr = arr.map((num) => num * 2);
+
+      console.log(`The new array is ${moddedArr}`);
+    </script>
+  </body>
+</html>
