@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Robo-Dealer</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -8,7 +9,7 @@
     ></script>
   </head>
   <body>
-    <h1>Robo Dealer</h1>
+    <h1>Robo-Dealer</h1>
 
     <button onclick="dealHand();">Deal Hand</button>
 
@@ -17,6 +18,38 @@
 
     <script>
       /* define Card object and deck of cards here */
+      let cardDeck = [];
+
+      class Cards {
+        constructor(value, suit) {
+          this.value = value;
+          this.suit = suit;
+        }
+      }
+
+      let value;
+      let suit;
+
+      function createCards() {
+        for (i = 2; i <= 10; i++) {
+          value = i;
+          for (j = 0; j <= 3; j++) {
+            if (j === 0) {
+              suit = "Spade";
+            } else if (j === 1) {
+              suit = "Heart";
+            } else if (j === 2) {
+              suit = "Diamond";
+            } else {
+              suit = "Club";
+            }
+            console.log(value, suit);
+            let card = new Cards(value, suit);
+            // console.log(typeof card);
+          }
+        }
+      }
+      createCards();
 
       const dealHand = () => {
         /* code to deal a card hand goes here */
