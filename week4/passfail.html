@@ -45,9 +45,9 @@
               hasLower = true; // as soon as we encounter a lower case, we'll make hasLower true.
             }
 
-            // if (hasUpper && hasLower) {
-            //   break; // if we have both conditions we can exit the for loop here
-            // }
+            if (hasUpper && hasLower) {
+              break; // if we have both conditions we can exit the for loop here
+            }
           }
 
           // when no upper case is present we'll reassign passMessage to request an Upper case letter
@@ -63,7 +63,7 @@
               "password needs to have at least ONE lower case letter");
           }
 
-          // making it this far means the password was valid, so passMessage as reassign accordingly and we also return passwordValid as true.
+          // making it this far means the password was valid, so passMessage is reassign accordingly and we also return passwordValid as true.
           passMessage = "Password is valid!";
           return (passwordValid = true);
         }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.3</title>
+  </head>
+  <body>
+    <div class="output"></div>
+    <script>
+      // selects the div element with the class output and stores it in outputDiv variable.
+      let outputDiv = document.querySelector(".output");
+
+      //textContent is a property within the div element object. assigning it a string adds the text within the div element, displaying it on the page.
+      outputDiv.textContent = "This is added Text to the textContent property ";
+
+      //classList contains an array of the class names assigned to the div element. the add method here adds a new class name "red"
+      outputDiv.classList.add("red");
+      //adds an id(#)name
+      outputDiv.id = "tester";
+      //style is an object within the element. Select the backgroundColor property and assign red as the color.
+      outputDiv.style.backgroundColor = "red";
+
+      console.log(document.URL);
+      //change the text content to be the documents url.
+      outputDiv.textContent = document.URL;
+      console.dir(outputDiv);
+    </script>
+  </body>
+</html>
