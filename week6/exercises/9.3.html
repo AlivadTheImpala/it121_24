@@ -8,7 +8,7 @@
   <body>
     <div class="output"></div>
     <script>
-      // selects the div element with the class output and stores it in outputDiv variable.
+      // we select the document object which contains all of our html elements. using querySelector() we select the "output" class. In this example it's just the singular div element.
       let outputDiv = document.querySelector(".output");
 
       //textContent is a property within the div element object. assigning it a string adds the text within the div element, displaying it on the page.
@@ -16,7 +16,7 @@
 
       //classList contains an array of the class names assigned to the div element. the add method here adds a new class name "red"
       outputDiv.classList.add("red");
-      //adds an id(#)name
+      //adds an id(#) name.
       outputDiv.id = "tester";
       //style is an object within the element. Select the backgroundColor property and assign red as the color.
       outputDiv.style.backgroundColor = "red";
