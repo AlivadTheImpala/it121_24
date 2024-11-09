@@ -6,6 +6,40 @@
   <body>
     <div id="message"></div>
     <div id="output"></div>
-    <script></script>
+
+    <script>
+      // array with names is created and the divs are saved in variables.
+      let names = ["Brandon", "Ryan", "Jesse", "Gladys"];
+      let message = document.getElementById("message");
+      let output = document.getElementById("output");
+
+      // invoke the build function
+      build();
+
+      // builds out the table, its rows and the data.
+      function build() {
+        let html = "<h1>Names Table</h1><table>"; // the table is started outside of the for loop, otherwise the for loop would create as many tables as there are names in the array.
+
+        //loop through each of the array items, each item will have its own row with attributes that correspond to the array items index position and value. Two columns of data are added with the value and index position.
+        for (i = 0; i < names.length; i++) {
+          html += `<tr class="box" data-row = "${i + 1}" data-name="${
+            names[i]
+          }" onclick="getData(this)"> <td>${names[i]}</td> <td>${i + 1}</td>`;
+        }
+        // end for loop
+
+        document.getElementById("output").innerHTML = html; //each table row and data will be added to the output div.
+      }
+      //end build function
+
+      //this function is being invoked above in the table row via an onclick. the message div is then given the attributes and displayed on the page.
+      function getData(element) {
+        let dataRow = element.getAttribute("data-row");
+        console.log(dataRow);
+        let dataName = element.getAttribute("data-name");
+        console.log(dataName);
+        message.innerHTML = `${dataName} is in row ${dataRow}`;
+      }
+    </script>
   </body>
 </html>
