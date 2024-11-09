@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>10.6</title>
   </head>
-  <body></body>
+  <body>
+    <h1 class="mainSection">Shared Classes</h1>
+    <div class="mainSection">
+      This is a div tag, and has its class attribute set to mainSection.
+    </div>
+    <p class="mainSection">
+      This is p tag, and it also has the class attribute of mainSection.
+    </p>
+
+    <script>
+      let sharedClass = document.getElementsByClassName("mainSection");
+      console.log(sharedClass[2]);
+    </script>
+  </body>
 </html>
