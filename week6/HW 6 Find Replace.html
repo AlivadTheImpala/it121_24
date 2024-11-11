@@ -78,16 +78,17 @@ YOUR CODE GOES HERE: complete the following items to make the tests pass. For ta
       //4. Find the <li> tags located inside of the element with ID of "warnings"
       let warningItems = $("#warnings li");
       //5. Find the <ul> tag that contains an element with a class of "mild"
-      let ul = null;
+      let ul = $(".mild").parent();
       //6. Find all spans with a "data-x" attribute
-      var dataX = null;
+      var dataX = $("span[data-x]");
       //7. Change the elements with a class of "purple" to have a background of "magenta"
-
+      let magenta = $(".purple").css("background", "magenta");
       //8. Change the contents of the element with class "continent" to contain "Australia"
-
+      let aussie = $(".continent").text("Australia");
       //9. Add a class of "stripe" to all odd-numbered list items inside section tags
-
+      let odds = $("section li:odd").addClass("stripe");
       //10. Remove the class of "facts" from the <main> element
+      let facts = $("main").removeClass("facts");
     </script>
 
     <style>
