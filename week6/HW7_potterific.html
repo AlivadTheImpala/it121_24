@@ -135,9 +135,11 @@
     ];
 
     $(document).ready(function () {
-      $("table").append(
-        `<tr><td>${characters[0].name}</td><td>${characters[0].role}</td><td>${characters[0].house}</td><td>${characters[0].gender}</td><td>${characters[0].alignment}</td></tr>`
-      );
+      for (i = 0; i < characters.length; i++) {
+        $("table").append(
+          `<tr><td>${characters[i].name}</td><td>${characters[i].role}</td><td>${characters[i].house}</td><td>${characters[i].gender}</td><td>${characters[i].alignment}</td></tr>`
+        );
+      }
       /*
         - add a button for each 'house' value
         - add table row for each character
