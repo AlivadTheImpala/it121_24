@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Potterific</title>
+    <title>Potter-ific</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -135,14 +135,17 @@
     ];
 
     $(document).ready(function () {
+      $("table").append(
+        `<tr><td>${characters[0].name}</td><td>${characters[0].role}</td><td>${characters[0].house}</td><td>${characters[0].gender}</td><td>${characters[0].alignment}</td></tr>`
+      );
       /*
         - add a button for each 'house' value
         - add table row for each character
         - set visible rows to alternating background color
-            
-        - add click handler to show only rows matching selected 'house'. Enable buttons to call this handler. 
-        
-        - add click handler to reset table 
+
+        - add click handler to show only rows matching selected 'house'. Enable buttons to call this handler.
+
+        - add click handler to reset table
         */
     });
   </script>
