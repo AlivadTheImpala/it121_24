@@ -18,7 +18,9 @@
   </style>
 
   <body>
-    <div id="buttons"></div>
+    <div id="buttons">
+      <!-- buttons for each house will be added to the div with an #buttons -->
+    </div>
     <table border="1">
       <tr>
         <th>name</th>
@@ -133,16 +135,21 @@
         alignment: "?",
       },
     ];
-
+    let houses = [];
     $(document).ready(function () {
+      // populates the table with a row containing with the array objects properties
       for (i = 0; i < characters.length; i++) {
         $("table").append(
-          `<tr><td>${characters[i].name}</td><td>${characters[i].role}</td><td>${characters[i].house}</td><td>${characters[i].gender}</td><td>${characters[i].alignment}</td></tr>`
+          `<tr data-name = "${characters[i].name}" house = "${characters[i].house}"><td>${characters[i].name}</td><td>${characters[i].role}</td><td>${characters[i].house}</td><td>${characters[i].gender}</td><td>${characters[i].alignment}</td></tr>`
         );
       }
+      //end table loop
+
+      $("#buttons").append(`<button>${characters[0].house}</button>`);
+
       /*
         - add a button for each 'house' value
-        - add table row for each character
+        - add table row for each character:done
         - set visible rows to alternating background color
 
         - add click handler to show only rows matching selected 'house'. Enable buttons to call this handler.
