@@ -7,21 +7,17 @@
   </head>
   <body>
     <script>
-      let names = [
-        "Brandon Davila",
-        "Gladys Davila",
-        "Jess Christ",
-        "Ryan Smith",
-        "Fabian Davila",
-      ];
+      // split() takes in a string of a persons name and a callback function. In this context when calling split, we insert the greet function as the argument. split() can send it to any other function that may use the data created by the split function in a different way.
+
+      //   greet() uses the data to display a custom greeting .
 
       function greet(fullname) {
         console.log(`Hello, ${fullname[0]} ${fullname[1]}`);
       }
 
-      function split(name, callback) {
-        let fullname = name.split(" ");
-        console.log(fullname);
+      function split(person, callback) {
+        let fullname = person.split(" ");
+        // console.log(fullname);
         callback(fullname);
       }
 
