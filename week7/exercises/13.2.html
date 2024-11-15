@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13.2 Promises</title>
+  </head>
+  <body>
+    <script>
+      // I start by creating a new variable that stores my Promise. It immediately resolves and returns the string. Then it logs the value from the resolve and returns a new string. Looking at the books appendix, this was solved differently.
+      let myPromise = new Promise((resolve, reject) => {
+        resolve("Start Counting");
+      })
+        .then((value) => {
+          console.log(value); //this logs Start Counting
+          return "One";
+        })
+        .then((value) => {
+          console.log(value);
+          return "Two";
+        })
+        .then((value) => {
+          console.log(value);
+          return "Three";
+        })
+        .then((value) => {
+          console.log(value);
+        })
+        .catch((value) => {
+          console.log(value);
+        });
+      //end myPromise
+
+      //The book accomplishes the same thing using a counter function. One big difference I notice here is how you start the then process. Since I closed out the pinkyPromise variable with a semi colon, I have to select the variable and append .then to call the then function. It turns out you can select the variable and then skip down a line and start then on a new line. Writing it out on one line still works but makes it very awkward to read.
+      let pinkyPromise = new Promise((resolve, reject) => {
+        resolve("Start Counting: pinky Promise");
+      });
+
+      function counter(val) {
+        console.log(val);
+      }
+
+      pinkyPromise
+        .then((value) => {
+          counter(value); //this call to counter logs Start Counting: Pinky Promise
+          return "One: pinky";
+        })
+        .then((value) => {
+          counter(value);
+          return "Two: pinky";
+        })
+        .then((value) => {
+          counter(value);
+          return "Three: pinky";
+        })
+        .then((value) => {
+          counter(value);
+        });
+      //end pinkyPromise
+    </script>
+  </body>
+</html>
