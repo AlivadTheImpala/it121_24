@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13.3 Await/Async</title>
+  </head>
+  <body>
+    <script>
+      let counter = 40;
+      // timeOut() is being called 10 times because its called inside capture() which itself is called 10 times by the for loop. each time counter is incremented by 1. after 1 second the result is saved in resolveValue below and logged to the console.
+      function timeOut(value) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            counter++;
+            resolve(`timeout: ${value} | counter value: ${counter}`);
+          }, 1000);
+        });
+      }
+
+      // capture is being called 10x in the loop below, it immediately logs the i argument and the current value of counter, 40. the resolveValue variable calls the timeOut() function and waits for it to finish producing all of the results, before then logging them to the console.
+      async function capture(value) {
+        console.log(` async value: ${value} | counter value: ${counter}`);
+        let resolveValue = await timeOut(value);
+        console.log(resolveValue);
+      }
+      //loop will call capture 10 times.
+      for (let i = 0; i <= 9; i++) {
+        capture(i); //only capture is being called and it is called 10 times within this loop.
+      }
+    </script>
+  </body>
+</html>
