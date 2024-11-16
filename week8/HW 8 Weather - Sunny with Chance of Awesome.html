@@ -93,10 +93,14 @@
         let userCity = $("input").val();
         console.log(userCity);
 
-        let userState = $("select option").val();
+        let userState = $("select").val();
         console.log(userState);
-        // let geocodeURL =
-        //   "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
+        let geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
+        console.log(geocodeURL);
+
+        $.getJSON(geocodeURL, function (result) {
+          console.log(result);
+        });
         // disable button to prevent double-submit
         $("button").disabled = true;
       });
