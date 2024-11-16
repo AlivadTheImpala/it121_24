@@ -1,17 +1,20 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <script
-                src="https://code.jquery.com/jquery-3.7.1.min.js"
-                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-                crossorigin="anonymous"></script>
-    </head>
-<body>
-  <H3/>Daily Weather Forecast</h3>
-  <hr>
-<form id="testform">
-  City: <input type="text" name="city">
-    State:
-    <select name="state">
+  <head>
+    <title>HW 8 Weather</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h3>Daily Weather Forecast</h3>
+    <hr />
+    <form id="testform">
+      City: <input type="text" name="city" />
+      State:
+      <select name="state">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -66,35 +69,37 @@
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-    </select>
-</form>
-<button>submit</button>
-<div id="forecast"></div>
+      </select>
+    </form>
+    <button>submit</button>
+    <div id="forecast"></div>
 
-<script>
-  // change to your API
-  let API_KEY = "";
+    <script>
+      // change to your API
+      let API_KEY = "409372b6d950060ce8f7792489a4220e";
 
-  // daily forecast API - https://openweathermap.org/forecast16
-  // geocoding API - https://openweathermap.org/api/geocoding-api
+      // daily forecast API - https://openweathermap.org/forecast16
+      // geocoding API - https://openweathermap.org/api/geocoding-api
 
-  // NOTE - api docs incorrectly show examples using http instead of https
+      // NOTE - api docs incorrectly show examples using http instead of https
 
-  const kelvinToF = (value) => {
-    var fahrenheit = (((Number(value) - 273.15)*9)/5) + 32;
-    return fahrenheit.toFixed(2);
-  }
+      const kelvinToF = (value) => {
+        var fahrenheit = ((Number(value) - 273.15) * 9) / 5 + 32;
+        return fahrenheit.toFixed(2);
+      };
 
+      $("button").on("click", (e) => {
+        // your code here
+        let userCity = $("input").val();
+        console.log(userCity);
 
-$('button').on('click', (e) => {
-
-  // your code here
-
-  // disable button to prevent double-submit
-  $("button").disabled = true;
-
-});
-
-</script>
-</body>
+        let userState = $("select option").val();
+        console.log(userState);
+        // let geocodeURL =
+        //   "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
+        // disable button to prevent double-submit
+        $("button").disabled = true;
+      });
+    </script>
+  </body>
 </html>
