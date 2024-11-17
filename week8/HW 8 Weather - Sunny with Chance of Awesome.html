@@ -75,34 +75,46 @@
     <div id="forecast"></div>
 
     <script>
-      // change to your API
-      let API_KEY = "409372b6d950060ce8f7792489a4220e";
+      $(function () {
+        // change to your API
+        let API_KEY = "409372b6d950060ce8f7792489a4220e";
 
-      // daily forecast API - https://openweathermap.org/forecast16
-      // geocoding API - https://openweathermap.org/api/geocoding-api
+        // daily forecast API - https://openweathermap.org/forecast16
+        // geocoding API - https://openweathermap.org/api/geocoding-api
 
-      // NOTE - api docs incorrectly show examples using http instead of https
+        // NOTE - api docs incorrectly show examples using http instead of https
 
-      const kelvinToF = (value) => {
-        var fahrenheit = ((Number(value) - 273.15) * 9) / 5 + 32;
-        return fahrenheit.toFixed(2);
-      };
+        const kelvinToF = (value) => {
+          var fahrenheit = ((Number(value) - 273.15) * 9) / 5 + 32;
+          return fahrenheit.toFixed(2);
+        };
 
-      $("button").on("click", (e) => {
-        // your code here
-        let userCity = $("input").val();
-        console.log(userCity);
+        $("button").on("click", (e) => {
+          // your code here
+          let userCity = $("input").val();
+          let userState = $("select").val();
+          let latitude, longitude;
+          //select the forecast div with id forecast.
+          let forecast = $("#forecast");
 
-        let userState = $("select").val();
-        console.log(userState);
-        let geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
-        console.log(geocodeURL);
+          let geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
+          console.log(`the geocode url for ${userCity} is: ${geocodeURL}`);
 
-        $.getJSON(geocodeURL, function (result) {
-          console.log(result);
+          $.ajax({
+            type: "GET",
+            url: geocodeURL,
+            success: function (locationData) {
+              console.log(locationData);
+
+              latitude = locationData[0].lat;
+              longitude = locationData[0].lon;
+              let forecastURL = `api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}`;
+              console.log(latitude, longitude);
+            },
+          });
+          // disable button to prevent double-submit
+          $("button").disabled = true;
         });
-        // disable button to prevent double-submit
-        $("button").disabled = true;
       });
     </script>
   </body>
