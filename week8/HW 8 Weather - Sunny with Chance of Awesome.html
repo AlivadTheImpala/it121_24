@@ -91,27 +91,42 @@
 
         $("button").on("click", (e) => {
           // your code here
+
           let userCity = $("input").val();
           let userState = $("select").val();
           let latitude, longitude;
           //select the forecast div with id forecast.
           let forecast = $("#forecast");
 
-          let geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
+          let geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
           console.log(`the geocode url for ${userCity} is: ${geocodeURL}`);
+          let forecastURL;
 
-          $.ajax({
-            type: "GET",
-            url: geocodeURL,
-            success: function (locationData) {
-              console.log(locationData);
+          if (!userCity.trim()) {
+            $("#forecast").text("Please Enter your City");
+            return;
+          } else {
+            $.ajax({
+              type: "GET",
+              url: geocodeURL,
+              success: function (locationData) {
+                // console.log(locationData);
+                latitude = locationData[0].lat;
+                longitude = locationData[0].lon;
+                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}&units=imperial`;
+                console.log(latitude, longitude, forecastURL);
+              },
+            });
 
-              latitude = locationData[0].lat;
-              longitude = locationData[0].lon;
-              let forecastURL = `api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}`;
-              console.log(latitude, longitude);
-            },
-          });
+            $.ajax({
+              type: "GET",
+              url: forecastURL,
+              success: function (forecastData) {
+                console.log(forecastData.dt_txt);
+              },
+            });
+          }
+
           // disable button to prevent double-submit
           $("button").disabled = true;
         });
