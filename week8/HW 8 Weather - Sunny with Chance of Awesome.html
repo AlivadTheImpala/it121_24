@@ -77,7 +77,7 @@
     <script>
       $(function () {
         // change to your API
-        let API_KEY = "409372b6d950060ce8f7792489a4220e";
+        let API_KEY = "d09708f81ff13711278d283901a9ce34";
 
         // daily forecast API - https://openweathermap.org/forecast16
         // geocoding API - https://openweathermap.org/api/geocoding-api
@@ -97,7 +97,6 @@
           let latitude, longitude;
           //select the forecast div with id forecast.
           let forecast = $("#forecast");
-
           let geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${userCity},${userState},US&limit=5&appid=${API_KEY}`;
           console.log(`the geocode url for ${userCity} is: ${geocodeURL}`);
           let forecastURL;
@@ -113,7 +112,7 @@
                 // console.log(locationData);
                 latitude = locationData[0].lat;
                 longitude = locationData[0].lon;
-                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}&units=imperial`;
+                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}&units=imperial`;
                 console.log(latitude, longitude, forecastURL);
               },
             });
