@@ -108,20 +108,35 @@
             $.ajax({
               type: "GET",
               url: geocodeURL,
+              dataType: "json",
               success: function (locationData) {
-                // console.log(locationData);
+                console.log(locationData);
                 latitude = locationData[0].lat;
                 longitude = locationData[0].lon;
-                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=5&appid=${API_KEY}&units=imperial`;
+                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${API_KEY}&units=imperial`;
                 console.log(latitude, longitude, forecastURL);
-              },
-            });
 
-            $.ajax({
-              type: "GET",
-              url: forecastURL,
-              success: function (forecastData) {
-                console.log(forecastData.dt_txt);
+                //API call for 5 day forecast using forecastURL.
+                $.getJSON(forecastURL, function (forecastData) {
+                  let daysOfWeek = forecastData.list;
+                  console.log("Each Days Data", daysOfWeek);
+
+                  let forecastHTML = $("#forecast").append(
+                    `<h1>Forecast for ${userCity}, ${userState}</<h1>`
+                  );
+
+                  $.each(daysOfWeek, function (index, day) {
+                    let date = new Date(day.dt * 1000);
+
+                    let minTemp = day.temp.min;
+                    let maxTemp = day.temp.max;
+                    let humid = day.humidity;
+                    let weatherDesc = day.weather[0].description;
+                    let weatherIcon = day.weather[0].icon;
+
+                    console.log(``);
+                  });
+                });
               },
             });
           }
