@@ -126,13 +126,20 @@
                   );
 
                   $.each(daysOfWeek, function (index, day) {
-                    let date = new Date(day.dt * 1000);
+                    let date = new Date(day.dt * 1000).toDateString();
 
                     let minTemp = day.temp.min;
                     let maxTemp = day.temp.max;
                     let humid = day.humidity;
                     let weatherDesc = day.weather[0].description;
                     let weatherIcon = day.weather[0].icon;
+
+                    forecastHTML += $("#forecast").append(`
+                    <h2>${date} </h2>
+                    <p>The low will be: ${minTemp}</p>
+                    <p>The high will be: ${maxTemp} </p>
+                    <p>Humidity: ${humid} </p>
+                    `);
 
                     console.log(``);
                   });
