@@ -84,11 +84,6 @@
 
         // NOTE - api docs incorrectly show examples using http instead of https
 
-        const kelvinToF = (value) => {
-          var fahrenheit = ((Number(value) - 273.15) * 9) / 5 + 32;
-          return fahrenheit.toFixed(2);
-        };
-
         $("button").on("click", (e) => {
           // your code here
 
@@ -101,10 +96,14 @@
           console.log(`the geocode url for ${userCity} is: ${geocodeURL}`);
           let forecastURL;
 
+          //if the user enters nothing or a bunch of spaces, if is true and will display a message to enter a city.
           if (!userCity.trim()) {
             $("#forecast").text("Please Enter your City");
             return;
           } else {
+            // If the user enters a city the API call will occur.
+
+            //The main api call uses the geocode API to convert a city name to its appropriate latitude and longitude
             $.ajax({
               type: "GET",
               url: geocodeURL,
@@ -113,20 +112,22 @@
                 console.log(locationData);
                 latitude = locationData[0].lat;
                 longitude = locationData[0].lon;
-                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${API_KEY}&units=imperial`;
+                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${API_KEY}&units=imperial`; //plug the lat/long/API to the docs api call url.
                 console.log(latitude, longitude, forecastURL);
 
-                //API call for 5 day forecast using forecastURL.
+                //API call for 5 day forecast using forecastURL which uses the Latitude and Longitude. The forecast url leads to a json file with all the weather information. List contains the days of the week
                 $.getJSON(forecastURL, function (forecastData) {
-                  let daysOfWeek = forecastData.list;
-                  console.log("Each Days Data", daysOfWeek);
+                  let daysOfWeek = forecastData.list; // stores the list array that contains the weeks days.
+                  console.log("There are", daysOfWeek.length, "days");
 
-                  let forecastHTML = $("#forecast").append(
+                  //we start our html by selecting the forecast id and append some html.
+                  let forecastHTML = forecast.append(
                     `<h1>Forecast for ${userCity}, ${userState}</<h1>`
                   );
 
+                  // loop through the daysOfweek, each item at the current index will be the day. all required data is saved in variables.
                   $.each(daysOfWeek, function (index, day) {
-                    let date = new Date(day.dt * 1000).toDateString();
+                    let date = new Date(day.dt * 1000).toDateString(); //converts a Unix date to a normal readable string.
 
                     let minTemp = day.temp.min;
                     let maxTemp = day.temp.max;
@@ -134,14 +135,13 @@
                     let weatherDesc = day.weather[0].description;
                     let weatherIcon = day.weather[0].icon;
 
-                    forecastHTML += $("#forecast").append(`
+                    // with the relevant data selected from each day. we will append it to the forecast id element.
+                    forecastHTML += forecast.append(`
                     <h2>${date} </h2>
-                    <p>The low will be: ${minTemp}</p>
-                    <p>The high will be: ${maxTemp} </p>
+                    <p>The low will be: ${minTemp}&deg;F </p>
+                    <p>The high will be: ${maxTemp}&deg;F </p>
                     <p>Humidity: ${humid} </p>
                     `);
-
-                    console.log(``);
                   });
                 });
               },
