@@ -112,7 +112,8 @@
                 console.log(locationData);
                 latitude = locationData[0].lat;
                 longitude = locationData[0].lon;
-                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${API_KEY}&units=imperial`; //plug the lat/long/API to the docs api call url.
+                //plug the lat/long/API to the docs api call url.
+                forecastURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&cnt=7&appid=${API_KEY}&units=imperial`;
                 console.log(latitude, longitude, forecastURL);
 
                 //API call for 5 day forecast using forecastURL which uses the Latitude and Longitude. The forecast url leads to a json file with all the weather information. List contains the days of the week
@@ -127,7 +128,7 @@
 
                   // loop through the daysOfweek, each item at the current index will be the day. all required data is saved in variables.
                   $.each(daysOfWeek, function (index, day) {
-                    let date = new Date(day.dt * 1000).toDateString(); //converts a Unix date to a normal readable string.
+                    let date = new Date(day.dt * 1000).toDateString(); //converts a Unix date to a normal readable string. dt is the name in the json response that holds the unix date.
 
                     let minTemp = day.temp.min;
                     let maxTemp = day.temp.max;
