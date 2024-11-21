@@ -25,10 +25,54 @@
             - Draw the body with a line down from the center of the arc, create the left arm, and then move the draw position to do the right arm, which will be twice the width of the left arm. Move back to the center and continue down to draw the left leg, move back to the center, and draw the line for the right leg.
             - Move to the top, set the colour to blue, and draw a triangle for a hat. */
 
+      //create the canvas and the context
       let canvas = document.getElementById("myCanvas");
       let ctx = canvas.getContext("2d");
 
+      //head
+      ctx.beginPath();
       ctx.arc(250, 150, 80, 0, Math.PI * 2);
+      ctx.fillStyle = "pink";
+      ctx.fill();
+      ctx.stroke();
+
+      //right eye
+      ctx.beginPath();
+      ctx.arc(200, 150, 20, 0, Math.PI * 2);
+      ctx.stroke();
+
+      //left eye
+      ctx.beginPath();
+      ctx.arc(300, 150, 20, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // mouth
+      ctx.beginPath();
+      ctx.arc(250, 175, 10, 0, Math.PI);
+      ctx.stroke();
+
+      // nose
+      ctx.beginPath();
+      ctx.moveTo(250, 129);
+      ctx.lineTo(250, 165);
+      ctx.stroke();
+
+      //   body
+      ctx.beginPath();
+      ctx.moveTo(250, 230);
+      ctx.lineTo(250, 340);
+      ctx.stroke();
+
+      //left leg
+      ctx.beginPath();
+      ctx.moveTo(250, 340);
+      ctx.lineTo(200, 500);
+      ctx.stroke();
+
+      //right leg
+      ctx.beginPath();
+      ctx.moveTo(250, 340);
+      ctx.lineTo(300, 500);
       ctx.stroke();
     </script>
   </body>
