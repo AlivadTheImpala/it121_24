@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drawing A rectangle</title>
+    <style>
+      #myCanvas {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
-    <canvas class="myCanvas" width="" height=""></canvas>
+    <canvas id="myCanvas" width="640" height="640"></canvas>
+    <script>
+      /* Take the following steps:
+
+        - Add the canvas element to the page.
+        - Set the width and height to 640 px and, using CSS, add a 1 pc border to the element.
+        - Within the JavaScript, select the canvas element and set the Context to 2d.
+        - Set the fill style to red.
+        - Create an output of the shape by using a rectangle.
+        - Set the outline of the rectangle.
+        - Clear the rectangle inside to make it transparent and the color of the background. 
+        */
+
+      let canvas = document.getElementById("myCanvas");
+      let ctx = canvas.getContext("2d");
+      ctx.fillStyle = "red";
+      ctx.fillRect(10, 10, 620, 620);
+      ctx.strokeRect(10, 10, 620, 620); // couple of notes, the book does not introduce strokeRect() until after this exercise, further down in the chapter. strokeRect() was found after I checked the appendix for the answer.
+      ctx.clearRect(30, 30, 520, 520); //clearRect() is also introduced after this exercise. -_-
+    </script>
   </body>
 </html>

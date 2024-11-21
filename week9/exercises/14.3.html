@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14.3: Stick Figure</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #myCanvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+      /* Create the page elements and prepare to draw on the canvas.
+            - Begin the path with an arc roughly at the top center of your canvas object.
+            - Using arc(), set a position for the left eye, roughly at the top left of the center of the arc you just drew,   then add another arc for the right eye. Create a half arc for the mouth (the radian angle for a semicircle is pi) and fill all.
+            - Move the draw position to the center and draw a line for the nose.
+            - Draw the body with a line down from the center of the arc, create the left arm, and then move the draw position to do the right arm, which will be twice the width of the left arm. Move back to the center and continue down to draw the left leg, move back to the center, and draw the line for the right leg.
+            - Move to the top, set the colour to blue, and draw a triangle for a hat. */
+
+      let canvas = document.getElementById("myCanvas");
+      let ctx = canvas.getContext("2d");
+
+      ctx.arc(250, 150, 80, 0, Math.PI * 2);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
