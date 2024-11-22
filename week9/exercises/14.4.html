@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>14.4</title>
+    <style>
+      #canvas1 {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <canvas id="canvas1" height="640" width="640"></canvas>
@@ -17,6 +22,25 @@
         - Add the text to the canvas with fillText and set the x and y positions of the text.
         - Set a new font and color of red.
         - Create a loop and, using the value of the loop variable, add text to the page canvas element. */
+
+      let canvas = document.getElementById("canvas1");
+      let ctx = canvas.getContext("2d");
+
+      let myString = "Hello World";
+      ctx.font = "24px Ariel";
+      ctx.fillStyle = "blue";
+      ctx.fillText(myString, 100, 100);
+
+      let y = 150; // I initialized y becuase otherwise, entering a y value in the fillText below will draw all the text on top of itself. After the text has been drawn 50 is added to the y-coordinate.
+
+      for (let i = 1; i <= 10; i++) {
+        let loopString = `counter: ${i}`;
+
+        ctx.font = "18px Ariel";
+        ctx.fillStyle = "red";
+        ctx.fillText(loopString, 100, y);
+        y += 50;
+      }
     </script>
   </body>
 </html>
