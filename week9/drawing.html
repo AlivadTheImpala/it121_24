@@ -18,23 +18,45 @@
       let ctx = canvas.getContext("2d");
       let pos = {
         x: 0,
-        y: 0,
+        y: 10,
       };
 
+      //circle
       ctx.beginPath();
       ctx.arc(250, 200, 100, 0, Math.PI * 2);
       ctx.fillStyle = "tomato";
       ctx.fill();
       ctx.stroke();
 
+      // left line
       ctx.beginPath();
-      ctx.moveTo(250, 20);
+      ctx.moveTo(200, 20);
+      ctx.lineTo(200, 114);
+      ctx.stroke();
+
+      //center top line
+      ctx.beginPath();
+      ctx.moveTo(250, 40);
       ctx.lineTo(250, 150);
       ctx.stroke();
 
+      //draw rect
+      let recY = 10;
+      ctx.beginPath();
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(230, 150, 40, recY);
+      ctx.stroke();
+
+      //center low line
       ctx.beginPath();
       ctx.moveTo(250, 300);
-      ctx.lineTo(250, 380);
+      ctx.lineTo(250, 350);
+      ctx.stroke();
+
+      //right line
+      ctx.beginPath();
+      ctx.moveTo(300, 286);
+      ctx.lineTo(300, 380);
       ctx.stroke();
     </script>
   </body>
