@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploading Images</title>
+    <style>
+      #canvas1 {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="imageLoader" />
+    <canvas id="canvas1"></canvas>
+    <script>
+      /* Practice exercise 14.5
+            - We will practice uploading a local image to the canvas. The following exercise will demonstrate how to upload images from your local computer and have them displayed within the canvas element within your browser.
+
+            - Set up the page elements and add an input field to upload an image. Add the canvas element to the page.
+            - In JavaScript, select the input field and the canvas elements as JavaScript objects.
+            - Add an event listener to invoke an upload function once there is a change in the input field contents.
+            - Create the aforementioned function to handle the upload of the image to the canvas. Using FileReader, create a new FileReader object. In the reader.onload event, create a new image object.
+            - Add an onload listener to the image object so that when the image is loaded, set the canvas height and width to match half the image size height and width. Using ctx.drawImage(), add the image to the canvas.
+            - Set the img source to the result from the input value.
+            - Use the reader object and invoke readAsDataURL() to convert the file input value to a readable format of base64 image data that can be used within the canvas. */
+
+      let canvas = document.getElementById("canvas1");
+      let ctx = canvas.getContext("2d");
+      let imageLoader = document.getElementById("imageLoader");
+
+      imageLoader.addEventListener("change", imageUpload);
+
+      function imageUpload() {
+        let fr = new FileReader();
+        fr.readAsDataURL(event.target.files[0]);
+
+        fr.onload = function (e) {
+          let img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+          };
+        };
+      }
+    </script>
+  </body>
+</html>
