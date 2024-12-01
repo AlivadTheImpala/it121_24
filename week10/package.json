@@ -1,5 +1,6 @@
 {
   "name": "week10",
+  "type": "module",
   "version": "1.0.0",
   "description": "creating a basic web server with routes",
   "main": "index.js",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AlivadTheImpala/it121_24/issues"
   },
-  "homepage": "https://github.com/AlivadTheImpala/it121_24#readme"
+  "homepage": "https://github.com/AlivadTheImpala/it121_24#readme",
+  "dependencies": {
+    "node": "^20.18.1"
+  }
 }
