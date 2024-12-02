@@ -17,15 +17,13 @@ const server = http.createServer((req, res) => {
   const path = req.url.replace(/\/?(?:\?.*)?$/, "").toLowerCase();
   switch (path) {
     case "":
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end("<h1>Home Page</h1>");
+      serveStaticFile(res, "home.html", "text/html");
       break;
     case "/about":
       serveStaticFile(res, "about.html", "text/html");
       break;
     default:
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("Not Found");
+      serveStaticFile(res, "about.html", "text/html");
       break;
   }
 });
