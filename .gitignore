@@ -1,2 +1,5 @@
 .vscode/settings.json
 week10/exercises/public/img
+week10/node_modules
+week10/node
+week10/package-lock.json
